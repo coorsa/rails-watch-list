@@ -1,0 +1,9 @@
+
+
+<h2>Add a movie to your list, yo!</h2>
+
+<%= simple_form_for [ @list, @bookmark] do |f| %>
+  <%= f.input :comment, placeholder: "Give comment, yo!" %>
+  <%= f.association :movie %>
+  <%= f.submit class: "btn btn-outline-primary" %>
+<% end %>

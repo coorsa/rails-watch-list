@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # a user can see the details of a given list and its name
   # a user can crea a new list
   resources :lists, only: [:index, :new, :show, :create] do
-    resources :bookmarks, only: [:new, :create]
+    resources :bookmarks, only: [:index, :new, :create]
   end
   resources :bookmarks, only: [:destroy]
 end

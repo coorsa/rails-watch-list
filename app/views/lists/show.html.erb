@@ -1,14 +1,38 @@
+ <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">DA MOVIEZ</a>
+    <form class="form-inline">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+        <%= link_to new_list_bookmark_path(@list), :style => "text-decoration: none; color: inherit;" do %>
+        Add a bookmark
+        <% end %>
+      </button>
+    </form>
+  </div>
+</div>
+
 
 <h2>List details: <%= @list.name %></h2>
 
 
 <div class="cards">
   <% @list.movies.each do |l| %>
+    <% bookmark = Bookmark.find_by(list: @list, movie: l) %>
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= l.poster_url %>)">
       <p><strong><%= l.title %></strong></p>
       <p><%= l.rating %> / 10</p>
+      <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">
+      <%= link_to bookmark_path(bookmark), method: :delete, :style => "text-decoration: none; color: inherit;" do %>
+      Delete
+      <% end %>
+      </button>
     </div>
+
   <% end %>
 </div>
 
-<%= link_to 'Back', lists_path %>
+<button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+  <%= link_to lists_path, :style => "text-decoration: none; color: inherit;" do %>
+  Back
+  <% end %>
+</button>
