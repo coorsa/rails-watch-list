@@ -8,6 +8,8 @@
 require 'nokogiri' # gem to handle html
 require 'open-uri' # gem to open websites
 
+Movie.destroy_all
+
 def fetch_movies_urls(x)
   # define the link where to fetch info from
   imdb_top_movies_url = 'https://www.imdb.com/chart/top'
