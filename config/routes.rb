@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   # a user can see all the lists
   # a user can see the details of a given list and its name
   # a user can crea a new list
-
   root to: 'lists#index'
 
   resources :lists, only: [:index, :new, :show, :create] do
