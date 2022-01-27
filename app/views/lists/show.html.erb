@@ -18,10 +18,10 @@
 <div class="cards">
   <% @list.movies.each do |l| %>
     <% bookmark = Bookmark.find_by(list: @list, movie: l) %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= l.poster_url %>)">
-      <p><strong><%= l.title %></strong></p>
-      <p><%= l.rating %> / 10</p>
-      <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">
+    <div class="card-category" style="position: relative; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= l.poster_url %>)">
+      <span><strong><%= l.title %></strong></span>
+      <span> (<%= l.rating %> / 10)</span>
+      <button class="btn btn-outline-warning my-2 my-sm-0" style="position: absolute; bottom: 8px; right: 8px;" type="submit">
       <%= link_to bookmark_path(bookmark), method: :delete, :style => "text-decoration: none; color: inherit;" do %>
       Delete
       <% end %>
@@ -31,7 +31,7 @@
   <% end %>
 </div>
 
-<button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+<button class="btn btn-outline-success mt-4 my-2 my-sm-0" type="submit">
   <%= link_to lists_path, :style => "text-decoration: none; color: inherit;" do %>
   Back
   <% end %>
